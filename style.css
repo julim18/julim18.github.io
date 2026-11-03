@@ -3,14 +3,14 @@
    ========================================================================== */
 @font-face {
     font-family: 'BHT-Font';
-    src: url('fonts/Roboto-Regular.ttf') format('truetype');
+    src: url('Roboto-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BHT-Font';
-    src: url('fonts/Roboto-Bold.ttf') format('truetype');
+    src: url('Roboto-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
