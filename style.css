@@ -1,0 +1,144 @@
+/* ==========================================================================
+   1. SCHRIFTART EINBINDEN (@font-face)
+   ========================================================================== */
+@font-face {
+    font-family: 'BHT-Font';
+    src: url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BHT-Font';
+    src: url('fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   2. GRUNDLEGENDE FORMATIERUNGEN & ABSTÄNDE
+   ========================================================================== */
+:root {
+    --primary-color: #003366; /* BHT-Dunkelblau */
+    --accent-color: #008080;  /* Dezentes Teal */
+    --bg-color: #f4f6f9;      /* Helles, angenehmes Grau für den Hintergrund */
+    --card-bg: #ffffff;       /* Weißer Hintergrund für die Inhaltsboxen */
+    --text-color: #2c3e50;    /* Dunkles Grau-Blau für optimale Lesbarkeit */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'BHT-Font', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Zentraler Container für harmonische Seitenränder */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   3. HEADER & FOOTER
+   ========================================================================== */
+.site-header {
+    background-color: var(--card-bg);
+    border-bottom: 3px solid var(--primary-color);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    max-height: 55px;
+    width: auto;
+    display: block;
+}
+
+.header-info {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.site-footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   4. INHALTE & KARTEN-LAYOUT (Abstände zueinander)
+   ========================================================================== */
+.main-content {
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+/* Jedes <section>-Element bildet eine optische Karte mit Abstand */
+.card {
+    background-color: var(--card-bg);
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    border-left: 4px solid var(--accent-color);
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Links */
+a {
+    color: #0056b3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover, a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
