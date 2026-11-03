@@ -142,3 +142,11 @@ a:hover, a:focus {
     color: var(--primary-color);
     text-decoration: underline;
 }
+
+/* Styling für das BHT-Logo */
+img {
+    max-width: 250px; /* Maximale Breite des Logos */
+    height: auto;     /* Automatische Höhe, damit das Seitenverhältnis stimmt */
+    display: block;   /* Verhindert unerwünschte Abstände unter dem Bild */
+    margin-bottom: 20px; /* Etwas Abstand nach unten zum nächsten Element */
+}
