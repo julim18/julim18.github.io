@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum – GV Web Mapping I</title>
+    <title>OSM Karte & Polygon – GV Web Mapping I</title>
+    
+    <!-- 1. Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin="">
+
+    <!-- Ihr Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- 2. Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin=""></script>
+
+    <!-- ESRI Bibliothek für die Basemap --> 
+    <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js" integrity="" crossorigin=""></script>
 </head>
 <body>
 
@@ -14,46 +25,58 @@
             <img src="BHT_Logo_horizontal_Anthrazit_transparent.svg" alt="Logo der Berliner Hochschule für Technik" width="180">
         </a>
         <div class="header-info">
-            <p><strong>Fachbereich III</strong></p>
-            <p>Geoinformation und Umwelt</p>
+            <p><strong>Geoinformation und Umwelt</strong></p>
+            <!-- WICHTIG: Der Link zum Impressum -->
+            <p><a href="impressum.html" style="color: var(--primary-color); text-decoration: underline;">Zum Impressum &rarr;</a></p>
         </div>
     </div>
 </header>
 
-    <main class="container main-content">
-        <h1>Impressum</h1>
-
-        <section class="card">
-            <h2>Hinweis zum Projekt</h2>
-            <p>
-                Diese Webseite ist eine <strong>studentische Arbeit</strong> im Rahmen des Kurses 
-                <em>GV Web Mapping I</em> im Fachbereich III an der 
-                <a href="https://www.bht-berlin.de" target="_blank" rel="noopener">Berliner Hochschule für Technik (BHT)</a>.
-            </p>
-        </section>
-
-        <section class="card">
-            <h2>Angaben gemäß § 5 TMG</h2>
-            <p>
-                BHT-Mail: dssr8288@bht-berlin.de <br>
-                Name: Julius Müller<br>
-            </p>
-        </section>  
-    
-        <section class="card">
-            <h2>Anschrift der Hochschule</h2>
-            <p>
-                Berliner Hochschule für Technik<br>
-                Luxemburger Straße 10<br>
-                13353 Berlin
-            </p>
+    <!-- Hauptbereich für die Karte (volle Breite) -->
+    <main class="map-main">
+        <div id="map"></div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Berliner Hochschule für Technik | GV Web Mapping I</p>
+            <p>&copy; 2026 Julius Müller | BHT Berlin | GV Web Mapping I</p>
         </div>
     </footer>
+
+    <!-- JavaScript für die Karte, Marker und das Polygon -->
+    <script>
+        // Karte auf Berlin zentrieren
+        let map = L.map('map').setView([52.518, 13.376], 13);
+
+        // ESRI Topographic Basemap laden
+        let layer = L.esri.basemapLayer('Topographic').addTo(map);
+
+        // Ein Beispiel-Marker (z.B. Reichstag)
+        let marker = L.marker([52.5186, 13.3761]).addTo(map);
+        marker.bindPopup("<b>Reichstagsgebäude Berlin</b>");
+
+        // Gekennzeichnetes Gebiet als Polygon (z.B. Großer Tiergarten)
+        let polygonCoords = [
+            [52.514, 13.350],
+            [52.522, 13.342],
+            [52.524, 13.370],
+            [52.510, 13.380],
+            [52.504, 13.365]
+        ];
+
+        let polygon = L.polygon(polygonCoords, {
+            color: '#003366',       // Rahmenfarbe
+            fillColor: '#008080',   // Füllfarbe
+            fillOpacity: 0.5        // Transparenz
+        }).addTo(map);
+
+        // Infotext für das Polygon
+        polygon.bindPopup(
+            "<strong>Großer Tiergarten Berlin</strong><br>" +
+            "Fläche: ca. 210 Hektar<br>" +
+            "Zentrales Erholungsgebiet."
+        );
+    </script>
 
 </body>
 </html>
